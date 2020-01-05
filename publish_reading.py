@@ -1,5 +1,4 @@
 import serial
-from time import sleep
 
 import paho.mqtt.client as mqtt_client
 
@@ -24,5 +23,5 @@ while True:
     message = raw_message.decode().strip()
 
     if message:
-        client.publish("luxReadings", 450.42, qos=0, retain=False)
+        client.publish("luxReadings", message, qos=0, retain=False)
 
