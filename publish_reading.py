@@ -1,6 +1,7 @@
 import serial
 
 import paho.mqtt.client as mqtt_client
+# ToDo: Make this publish to Adafruit.
 
 from mqtt_lib import *
 
@@ -23,5 +24,6 @@ while True:
     message = raw_message.decode().strip()
 
     if message:
+        # ToDo: Add in Try...Catch...statement for error handling.
         client.publish("luxReadings", message, qos=0, retain=False)
 
