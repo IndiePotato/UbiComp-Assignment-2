@@ -30,3 +30,14 @@ def on_disconnect():
     sys.exit(0)
 
 
+def on_subscribe(feed_id):
+    """
+    MQTT Client on_subscribe function value.
+
+    Arguments:
+         feed_id (str): The ID of the Feed to subscribe to.
+    """
+    print("Subscribed to {0}", feed_id)
+
+
+
