@@ -17,7 +17,7 @@ client.connect()
 client.subscribe(FEED_ID, qos=0)
 
 while True:
-    sleep(1)
+    sleep(3)
     raw_message = serial_connection.readline()
     message = raw_message.decode().strip()
 
