@@ -22,7 +22,10 @@ while True:
     message = raw_message.decode().strip()
 
     if message:
-        print("Publishing value: ", message)
-        # ToDo: Add in Try...Catch...statement for error handling.
-        client.publish(FEED_ID, message)
+        if 'RED' not in message \
+                and 'GREEN' not in message \
+                and 'YELLOW' not in message:
+            print("Publishing value: ", message)
+            # ToDo: Add in Try...Catch...statement for error handling.
+            client.publish(FEED_ID, message)
 
