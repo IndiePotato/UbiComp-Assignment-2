@@ -1,6 +1,6 @@
 from serial import Serial
 
-import paho.mqtt.client as mqtt_client
+from Adafruit_IO import MQTTClient
 # ToDo: Make this publish to Adafruit.
 
 from config import *
@@ -9,16 +9,14 @@ from mqtt_lib import *
 broker_url = "127.0.0.1"
 broker_port = 1883
 
-client = mqtt_client.Client()
-client.connect(broker_url)
-
-# client.on_message = on_message
-
+client = MQTTClient(USERNAME, IO_KEY)
+client.on_message = on_message
+client.on_subscribe = on_subscribe(FEED_ID)
 serial_connection = Serial("/dev/ttyACM0", 9600, timeout=1)
 
 print("Subscribing to luxReadings feed....")
 # ToDo: Add in Try...Catch... statement for error handling.
-client.subscribe("luxReadings", qos=0)
+client.subscribe(FEED_ID, qos=0)
 
 while True:
     raw_message = serial_connection.readline()
@@ -26,5 +24,5 @@ while True:
 
     if message:
         # ToDo: Add in Try...Catch...statement for error handling.
-        client.publish("luxReadings", message, qos=0, retain=False)
+        client.publish(FEED_ID, message)
 
