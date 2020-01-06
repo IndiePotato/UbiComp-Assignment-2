@@ -3,7 +3,7 @@ from serial import Serial
 import paho.mqtt.client as mqtt_client
 # ToDo: Make this publish to Adafruit.
 
-from config_example import *
+from config import *
 from mqtt_lib import *
 
 broker_url = "127.0.0.1"
