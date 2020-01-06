@@ -12,7 +12,7 @@ def on_message(message):
     Arguments:
         message The message received.
     """
-    print(f"Message received: {0}", str(message.payload.decode("utf-8")))
+    print("Message received: ", str(message.payload.decode("utf-8")))
 
 
 def on_connect():
