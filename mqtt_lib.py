@@ -37,7 +37,7 @@ def on_subscribe(feed_id):
     Arguments:
          feed_id (str): The ID of the Feed to subscribe to.
     """
-    print(f"Subscribed to %s", feed_id)
+    print("Subscribed to ", feed_id)
 
 
 
